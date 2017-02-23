@@ -1,4 +1,6 @@
 FROM jenkins:latest 
+ARG user=jenkins
+
 USER root
 
 #add phantomjs
