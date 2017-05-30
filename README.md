@@ -1,2 +1,2 @@
 # jenkins-docker
-jenkins docker image with added phantomjs and support for launch4j maven plugin
+jenkins docker image with added support for launch4j maven plugin
