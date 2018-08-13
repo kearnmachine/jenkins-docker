@@ -3,12 +3,10 @@ ARG user=jenkins
 
 USER root
 
-#launch4j 32bit libs (fix for windres: No such file or directory)
-#nodejs
-#chromium
+#launch4j 32bit libs (fix for windres: No such file or directory): lib32z1 lib32ncurses5
 RUN apt-get update \
 && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-&& apt-get install -y lib32z1 lib32ncurses5 chromium ca-certificates nodejs \
+&& apt-get install -y lib32z1 lib32ncurses5 chromium ca-certificates nodejs zip\
 #cleanup
 && rm -rf /var/lib/apt/lists/*
 RUN echo "installed nodejs version: `nodejs --version`"
