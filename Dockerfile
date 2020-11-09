@@ -13,7 +13,7 @@ RUN echo "installed nodejs version: `nodejs --version`"
 
 
 #YARN (from _/node dockerfile)
-ENV YARN_VERSION 1.6.0
+ENV YARN_VERSION 1.22.5
 
 RUN set -ex \
   && for key in \
@@ -28,6 +28,7 @@ RUN set -ex \
   && gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && mkdir -p /opt \
   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/ \
+  && rm -rf /usr/local/bin/yarn /usr/local/bin/yarnpkg \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
